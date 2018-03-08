@@ -1,0 +1,18 @@
+<mat-card style="margin: 10px auto !important">
+  <mat-card-title>{{car?.model}} </mat-card-title>
+  <img mat-card-image [src]="car?.photoUrl" [alt]='car?.model'>
+  <mat-card-content>
+    <h3>Country :
+      <strong>{{car?.country.country}}</strong>
+    </h3>
+    <h4>Year :
+      <strong>{{car?.year | date:"MM/dd/yy"}}</strong>
+    </h4>
+  </mat-card-content>
+</mat-card>
+
+
+
+<div class="spiner" *ngIf="load">
+  <mat-spinner></mat-spinner>
+</div>

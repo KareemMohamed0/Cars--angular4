@@ -1,0 +1,68 @@
+<!-- <p>
+  home works!
+  <a routerLink='/' routerLinkActive="active" routerLinkActiveOptons="{exact:true}">login</a>
+  <a routerLink='/home' routerLinkActive="active">login</a>
+  <a routerLink='/make' routerLinkActive="active">login</a>
+  <a routerLink='/country' routerLinkActive="active">login</a>
+
+</p> -->
+<div style="width: 100%">
+  <div style="margin: 20px auto; text-align: center">
+    <button routerLink='/add/car' mat-button>New car</button>
+    <button routerLink='/make' mat-button>New make</button>
+    <button routerLink='/country' mat-button>New country</button>
+  </div>
+</div>
+<div class="example-container mat-elevation-z8" style="margin: 20px">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="make">
+      <mat-header-cell *matHeaderCellDef> Make </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.make.make}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="model">
+      <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+      <mat-cell style="cursor: pointer" (click)="carDetails(element.id)" *matCellDef="let element"> {{element.model}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country.country}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.year | date:"MM/dd/yy" }} </mat-cell>
+    </ng-container>
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> delete </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="deleteCar(element.id)" style="background-color:#d9534f!important">delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+
+
+<div class="spiner" *ngIf="load">
+  <mat-spinner></mat-spinner>
+</div>

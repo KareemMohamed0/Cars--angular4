@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" *ngIf="token.isLoggedIn()">
+  <span>Elephant Cars</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <span>
+    <button (click)="logout()" mat-button> Logout</button>
+  </span>
+</mat-toolbar>
+<router-outlet></router-outlet>

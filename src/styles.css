@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+mat-card{
+    width: 50%;
+    margin: 10% auto;
+    
+}
+.mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+  color: currentColor;
+  background-color: #651dad;
+  color: #fff!important;
+}
+mat-form-field{
+  margin: 10px 0;
+}
+body{margin: 0}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  a.active{
+    color: red
+}
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  .spiner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    
+
+}
+mat-spinner{
+  margin: 0 auto;
+  margin-top: 20%;
+  z-index: 99999;
+  
+}
+  /* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    mat-card{
+        width: 80%;
+        margin: 20% auto;
+        
+    }
+    
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    mat-card{
+        width: 80%;
+        margin: 30% auto;
+        
+    }
+    
+  }

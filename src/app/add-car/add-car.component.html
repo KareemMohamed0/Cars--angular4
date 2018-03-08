@@ -1,0 +1,65 @@
+<div style="width: 100%;text-align: center">
+  <mat-card style="margin-top: 40px!important">
+    <mat-card-title>
+      New Car
+    </mat-card-title>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="myForm" novalidate (ngSubmit)="addCar(myForm.value, myForm.valid)">
+
+
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Makers " formControlName="makeId" [errorStateMatcher]="matcher">
+            <mat-option *ngFor="let maker of makers" [value]="maker.id">
+              {{ maker.make }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!myForm.controls.makeId.valid || !(myForm.controls.makeId.pristine)">
+            Maker is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Model" formControlName="model" [errorStateMatcher]="matcher">
+          <mat-hint> Country is required !</mat-hint>
+          <mat-error *ngIf="!myForm.controls.model.valid || !(myForm.controls.model.pristine)">
+            Country is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Countris" formControlName="countryId" [errorStateMatcher]="matcher">
+            <mat-option *ngFor="let country of countris" [value]="country.id">
+              {{ country.country }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!myForm.controls.countryId.valid || !(myForm.controls.countryId.pristine)">
+            Country is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Year" formControlName="year" [errorStateMatcher]="matcher">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="!myForm.controls.year.valid || !(myForm.controls.year.pristine)">
+            Year is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Photo Url" formControlName="photoUrl" [errorStateMatcher]="matcher">
+          <mat-hint> Country is required !</mat-hint>
+          <mat-error *ngIf="!myForm.controls.photoUrl.valid || !(myForm.controls.photoUrl.pristine)">
+            Country is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-button [disabled]="!myForm.valid" type="submit">Submit</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+<div class="spiner" *ngIf="load">
+  <mat-spinner></mat-spinner>
+</div>

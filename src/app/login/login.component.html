@@ -1,0 +1,40 @@
+<!-- <p>
+  login works!
+</p>
+<a routerLink='/' routerLinkActive="active" routerLinkActiveOptons="{exact:true}">login</a>
+<a routerLink='/home' routerLinkActive="active">login</a>
+<a routerLink='/make' routerLinkActive="active">login</a>
+<a routerLink='/country' routerLinkActive="active">login</a> -->
+
+
+<div style="width: 100%;text-align: center">
+  <mat-card>
+    <mat-card-title>
+      LOGIN
+    </mat-card-title>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="myForm" novalidate (ngSubmit)="login(myForm.value, myForm.valid)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+          <mat-hint> Email address is required !</mat-hint>
+          <mat-error *ngIf="!myForm.controls.email.valid || !(myForm.controls.email.pristine)">
+            Four charcter is min lenhth of the email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Password" formControlName="password" [errorStateMatcher]="matcher">
+          <mat-hint>Passwrod is required!</mat-hint>
+          <mat-error *ngIf="!myForm.controls.password.valid || !(myForm.controls.password.pristine )">
+            Password must be between 6 and 20 charcters
+          </mat-error>
+        </mat-form-field>
+        <button mat-button [disabled]="!myForm.valid" type="submit">Submit</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="spiner" *ngIf="load">
+  <mat-spinner></mat-spinner>
+</div>

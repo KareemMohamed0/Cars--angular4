@@ -1,0 +1,44 @@
+<!-- <p>
+  country works!
+</p>
+<a routerLink='/' routerLinkActive="active" routerLinkActiveOptons="{exact:true}">login</a>
+<a routerLink='/home' routerLinkActive="active">login</a>
+<a routerLink='/make' routerLinkActive="active">login</a>
+<a routerLink='/country' routerLinkActive="active">login</a> -->
+
+
+<!-- <p>
+  maker works!
+</p>
+
+<a routerLink='/' routerLinkActive="active">login</a>
+<a routerLink='/home' routerLinkActive="active ">login</a>
+<a routerLink='/make' routerLinkActive="active ">login</a>
+<a routerLink='/country' routerLinkActive="active ">login</a> -->
+
+<div style="width: 100%;text-align: center">
+  <mat-card>
+    <mat-card-title>
+      New Country
+    </mat-card-title>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="myForm" novalidate (ngSubmit)="addCountry(myForm.value, myForm.valid)">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Country" formControlName="country" [errorStateMatcher]="matcher">
+          <mat-hint> Country length must be between 2 and 20 charcters ! !
+          </mat-hint>
+          <mat-error *ngIf="!myForm.controls.country.valid || !(myForm.controls.country.pristine)">
+            Invalid country length range
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-button [disabled]="!myForm.valid" type="submit">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<div class="spiner" *ngIf="load">
+  <mat-spinner></mat-spinner>
+</div>
